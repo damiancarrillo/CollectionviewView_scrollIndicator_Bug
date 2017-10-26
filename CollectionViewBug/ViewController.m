@@ -47,4 +47,13 @@
     return view;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    // Here is a workaround that positions the visible headers below the scroll indicator.
+    
+    for (UICollectionReusableView *header in [self.collectionView visibleSupplementaryViewsOfKind:UICollectionElementKindSectionHeader]) {
+        header.layer.zPosition = 0;
+    }
+}
+
 @end
